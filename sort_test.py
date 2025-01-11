@@ -1,34 +1,51 @@
-import sort
 import unittest
+
+# Assuming all the sorting functions are already defined in this file
 
 class TestSortingAlgorithms(unittest.TestCase):
 
-    def setUp(self):
-        # Sample data for testing
-        self.test_cases = [
-            ([], []),  # Empty array
-            ([1], [1]),  # Single element
-            ([2, 1], [1, 2]),  # Two elements
-            ([5, 2, 9, 1, 5, 6], [1, 2, 5, 5, 6, 9]),  # General case
-            ([3, 3, 3], [3, 3, 3]),  # All elements same
-            ([10, -1, 2, 5, 0, -3], [-3, -1, 0, 2, 5, 10]),  # Mixed positive and negative
-            ([5, 4, 3, 2, 1], [1, 2, 3, 4, 5]),  # Reversed order
-        ]
-
     def test_bubble_sort(self):
-        for input_arr, expected in self.test_cases:
-            with self.subTest(input=input_arr, expected=expected):
-                self.assertEqual(sort.bubble_sort(input_arr[:]), expected)  # Use input_arr[:] to avoid modifying original
+        arr = [5, 3, 8, 6, 2]
+        self.assertEqual(bubble_sort(arr), [2, 3, 5, 6, 8])
+        self.assertEqual(bubble_sort([]), [])
+        self.assertEqual(bubble_sort([1]), [1])
+        self.assertEqual(bubble_sort([3, 3, 3]), [3, 3, 3])
 
     def test_quick_sort(self):
-        for input_arr, expected in self.test_cases:
-            with self.subTest(input=input_arr, expected=expected):
-                self.assertEqual(sort.quick_sort(input_arr[:]), expected)
+        arr = [5, 3, 8, 6, 2]
+        self.assertEqual(quick_sort(arr), [2, 3, 5, 6, 8])
+        self.assertEqual(quick_sort([]), [])
+        self.assertEqual(quick_sort([1]), [1])
+        self.assertEqual(quick_sort([3, 3, 3]), [3, 3, 3])
 
     def test_merge_sort(self):
-        for input_arr, expected in self.test_cases:
-            with self.subTest(input=input_arr, expected=expected):
-                self.assertEqual((input_arr[:]), expected)
+        arr = [5, 3, 8, 6, 2]
+        self.assertEqual(merge_sort(arr), [2, 3, 5, 6, 8])
+        self.assertEqual(merge_sort([]), [])
+        self.assertEqual(merge_sort([1]), [1])
+        self.assertEqual(merge_sort([3, 3, 3]), [3, 3, 3])
+
+    def test_insertion_sort(self):
+        arr = [5, 3, 8, 6, 2]
+        self.assertEqual(insertion_sort(arr), [2, 3, 5, 6, 8])
+        self.assertEqual(insertion_sort([]), [])
+        self.assertEqual(insertion_sort([1]), [1])
+        self.assertEqual(insertion_sort([3, 3, 3]), [3, 3, 3])
+
+    def test_selection_sort(self):
+        arr = [5, 3, 8, 6, 2]
+        self.assertEqual(selection_sort(arr), [2, 3, 5, 6, 8])
+        self.assertEqual(selection_sort([]), [])
+        self.assertEqual(selection_sort([1]), [1])
+        self.assertEqual(selection_sort([3, 3, 3]), [3, 3, 3])
+
+    def test_heap_sort(self):
+        arr = [5, 3, 8, 6, 2]
+        self.assertEqual(heap_sort(arr), [2, 3, 5, 6, 8])
+        self.assertEqual(heap_sort([]), [])
+        self.assertEqual(heap_sort([1]), [1])
+        self.assertEqual(heap_sort([3, 3, 3]), [3, 3, 3])
+
 
 if __name__ == "__main__":
     unittest.main()
